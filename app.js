@@ -3,13 +3,12 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const path = require('path');
 
+
 const sauceRoutes = require('./routes/sauce')
 const userRoutes = require('./routes/user');
 
-require('dotenv').config({ path: process.cwd() + '/env' });
+mongoose.connect('mongodb+srv://openclassroomsP6:26Julesferry@cluster0.pjhmf.mongodb.net/sauces?retryWrites=true&w=majority', {
 
-mongoose
-    .connect('mongodb+srv://openclassroomsP6:26Julesferry@cluster0.pjhmf.mongodb.net/sauce?retryWrites=true&w=majority', {
         useNewUrlParser: true,
         useUnifiedTopology: true,
         useCreateIndex: true
@@ -22,7 +21,7 @@ const app = express();
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*')
     res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-with, Content, Accept, Content-Type, Authorization')
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE')
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS')
     next()
 });
 

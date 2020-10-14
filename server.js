@@ -16,7 +16,6 @@ const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 const errorHandler = error => {
-
     if (error.syscall !== 'listen') {
         throw error;
     }
