@@ -69,7 +69,7 @@ exports.likeSauce = (req, res, next) => {
                                 res.status(200).json({ message: "Votre avis a été supprimé" });
                             })
                             .catch((error) => {
-                                res.status(400).json({ error: error }); //Bad Request
+                                res.status(400).json({ error: error }); //Mauvaise demande
                             });
                     }
                     if (sauce.usersDisliked.find((user) => user === req.body.userId)) {
